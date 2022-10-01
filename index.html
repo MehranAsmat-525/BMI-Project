@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator By Mehran Asmat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h2 id="BMI "> World</h2>
+        <div class="header all">BMI</div>
+        <div class="card_body">
+            <div class="info">
+                <label for="">Weight : </label>
+                <input type="number" placeholder="Enter Weight in KG: " id="w" required>
+            </div>
+            <div class="info">
+                <label for="">Height : </label>
+                <input type="number" placeholder="Enter Height in Feet: " id="h" required>
+            </div>
+            <div class="info">
+                <label for="" id="b">BMI Value is </label>
+                <!-- <input type="number" placeholder="Enter Height in m: "> -->
+            </div>
+            <button type="submit" id="btt" onclick="getBMIvalue()">Click</button>
+        </div>
+        <div class="card_footer all" >A Healthy BMI rage is 19-25</div>
+    </div>
+
+    <script>
+
+        function getBMIvalue() {
+            let w = document.getElementById("w").value;
+            let h = document.getElementById("h").value;
+            let btt = document.getElementById("btt");
+            let BMI = document.getElementById("BMI ");
+            // let b = document.get
+            h = h * 12;
+            h = h * 0.025;
+            h = h * h;
+            let newBMIvalue = w / h;
+            // alert(newBMIvalue);
+            let x = Math.round(newBMIvalue);
+            let b = document.getElementById("b");
+            if (x > 17 && x < 26) {
+                b.innerHTML = x;
+                b.style.background = "green"
+                alert(` ${b.innerHTML}, Congrats !!! you are healthy`)
+                btt.style.background = "green"
+                BMI.innerHTML = " Enter into the world of Fit People "
+                BMI.style.background = "green"
+
+            }
+            else {
+                b.innerHTML = x;
+                b.style.background = "red"
+                alert(` ${b.innerHTML}, DESPAIR !!! you are NOT healthy`)
+                btt.style.background = "red"
+                BMI.innerHTML = " Cant Enter to the world of Fit People"
+                BMI.style.background = "red"
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
